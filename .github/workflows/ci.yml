@@ -37,4 +37,5 @@ jobs:
         # without exposing your real Gemini API key to the public runner!
         GEMINI_API_KEY: "dummy_key_for_ci_testing_only"
       run: |
+        cd resume_project
         pytest test.py -v
