@@ -11,6 +11,7 @@ jobs:
   test:
     name: Run Pytest Suite
     runs-on: ubuntu-latest
+    environment: Production
 
     steps:
     # 1. Grab the code from your GitHub repository
@@ -33,9 +34,7 @@ jobs:
     # 4. Run the automated test suite
     - name: Run tests with Pytest
       env:
-        # We provide a fake key here so model.py can import successfully 
-        # without exposing your real Gemini API key to the public runner!
-        GEMINI_API_KEY: "dummy_key_for_ci_testing_only"
+        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       run: |
         cd resume_project
         pytest test.py -v
