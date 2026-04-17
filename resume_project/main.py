@@ -20,10 +20,13 @@ app = FastAPI()
 # Get the absolute path of the resume_project folder
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-app.mount("/static", StaticFiles(directory="static"), name="static")
+# Define paths correctly
+STATIC_DIR = os.path.join(BASE_DIR, "static")
+TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")
 
-# Point to the new templates folder correctly
-templates = Jinja2Templates(directory=os.path.join(BASE_DIR, "templates"))
+# Mount using absolute paths
+app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
+templates = Jinja2Templates(directory=TEMPLATES_DIR)
 
 UPLOAD_FOLDER = "uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
