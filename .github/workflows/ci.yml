@@ -28,7 +28,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
+        pip install -r resume_project/requirements.txt
 
     # 4. Run the automated test suite
     - name: Run tests with Pytest
@@ -37,4 +37,5 @@ jobs:
         # without exposing your real Gemini API key to the public runner!
         GEMINI_API_KEY: "dummy_key_for_ci_testing_only"
       run: |
+        cd resume_project
         pytest test.py -v
