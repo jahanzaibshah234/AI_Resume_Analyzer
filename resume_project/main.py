@@ -17,9 +17,13 @@ import time
 
 app = FastAPI()
 
+# Get the absolute path of the resume_project folder
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
-templates = Jinja2Templates(directory="static")
+# Point to the new templates folder correctly
+templates = Jinja2Templates(directory=os.path.join(BASE_DIR, "templates"))
 
 UPLOAD_FOLDER = "uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
@@ -75,6 +79,7 @@ async def analyze(
             "job_desc": job_desc
         }
     )
+
 
 
 @app.post("/download")
