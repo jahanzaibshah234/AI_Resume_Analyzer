@@ -1,0 +1,108 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: white;
+    margin: 0;
+}
+
+.container {
+    width: 60%;
+    margin: auto;
+    padding: 30px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+.subtitle {
+    color: #94a3b8;
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 15px;
+}
+
+.file-upload input {
+    margin: 15px 0;
+}
+
+button {
+    background: #22c55e;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: #16a34a;
+}
+
+.result-card {
+    margin-top: 30px;
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.progress-bar {
+    width: 100%;
+    background: #334155;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 15px 0;
+}
+
+.progress {
+    background: linear-gradient(90deg, #22c55e, #4ade80);
+}
+
+.sections {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    flex: 1;
+    background: #0f172a;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+/* --- Loading Spinner Styles --- */
+#loading-spinner {
+    margin-top: 20px;
+    color: #94a3b8;
+    animation: pulse 1.5s infinite;
+}
+
+.spinner {
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    border-left-color: #22c55e;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 10px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}

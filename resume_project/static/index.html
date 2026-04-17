@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Resume Analyzer</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>🚀 AI Resume Analyzer</h1>
+    <p class="subtitle">Get professional feedback on your resume instantly</p>
+
+    <form action="/analyze" method="post" enctype="multipart/form-data" onsubmit="showLoader()">
+        
+        <textarea name="job_desc" placeholder="📄 Paste Job Description..." required></textarea>
+
+        <div class="file-upload">
+            <input type="file" name="file" required>
+        </div>
+
+        <button type="submit" id="submit-btn">Analyze Resume</button>
+        
+        <div id="loading-spinner" style="display: none;">
+            <div class="spinner"></div>
+            <p>🧠 AI is analyzing your resume... this may take a few seconds.</p>
+        </div>
+    </form>
+
+    {% if score %}
+    <div class="result-card">
+
+        <h2>ATS Score</h2>
+        <div class="progress-bar">
+            <div class="progress" style="width: {{ ats_score }}%;">
+                {{ ats_score }}/100
+            </div>
+        </div>
+
+        <form action="/download" method="post">
+            <input type="hidden" name="job_desc" value="{{ job_desc | e }}">
+            <input type="hidden" name="ats_score" value="{{ ats_score }}">
+            <input type="hidden" name="missing_skills" value="{{ missing | join('||') | e }}">
+            <input type="hidden" name="suggestions" value="{{ suggestions | join('||') | e }}">
+            <button type="submit">📥 Download Report</button>
+        </form>
+
+        <div class="sections">
+            <div class="card">
+                <h3>❌ Missing Skills</h3>
+                <ul>
+                    {% for skill in missing %}
+                        <li>{{ skill }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>🧠 Suggestions</h3>
+                <ul>
+                    {% for tip in suggestions %}
+                        <li>{{ tip }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    {% endif %}
+
+</div>
+
+<script>
+    function showLoader() {
+        document.getElementById('submit-btn').style.display = 'none';
+        document.getElementById('loading-spinner').style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
