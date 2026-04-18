@@ -28,7 +28,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")
 app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 templates = Jinja2Templates(directory=TEMPLATES_DIR)
 
-UPLOAD_FOLDER = "uploads"
+UPLOAD_FOLDER = "/tmp/uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 
