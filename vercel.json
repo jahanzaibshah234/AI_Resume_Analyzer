@@ -4,16 +4,15 @@
     {
       "src": "resume_project/main.py",
       "use": "@vercel/python",
-      "config": { "includeFiles": "resume_project/**" }
+      "config": {
+        "includeFiles": "resume_project/**",
+        "maxDuration": 30
+      }
     }
   ],
   "routes": [
     { "src": "/(.*)", 
-      "dest": "resume_project/main.py" }
-  ],
-  "functions": {
-    "resume_project/main.py": {
-      "maxDuration": 30
+      "dest": "resume_project/main.py" 
     }
-  }
+  ]
 }
