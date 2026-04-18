@@ -2,7 +2,7 @@ fastapi
 uvicorn
 python-multipart
 jinja2
-pymupdf
+pymupdf==1.23.8
 scikit-learn
 google-genai
 python-dotenv
