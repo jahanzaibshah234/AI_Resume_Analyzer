@@ -1,3 +1,5 @@
+import sys, os
+sys.path.insert(0, os.path.dirname(__file__))
 from fastapi import FastAPI, Request, Form, UploadFile, File
 from model import extract_text_from_pdf, preprocess, calculate_similarity, missing_skills, generate_suggestions, ats_score
 from fastapi.templating import Jinja2Templates
@@ -10,7 +12,6 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 from reportlab.platypus import HRFlowable
 from reportlab.lib import colors
 import shutil
-import os
 import io
 import time
 
