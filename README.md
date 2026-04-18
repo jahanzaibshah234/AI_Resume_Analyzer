@@ -2,8 +2,7 @@
 
 An intelligent web application that analyzes resumes against job descriptions using Google Gemini 2.5 Flash, calculates ATS compatibility scores, and generates professional PDF reports.
 
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
-![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)
+![Python](https://img.shields.io/badge/Python-3.10-blue.svg)
 ![FastAPI](https://img.shields.io/badge/Framework-FastAPI-green.svg)
 
 ## 🌟 Features
