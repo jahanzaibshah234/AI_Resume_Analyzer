@@ -8,9 +8,12 @@
     }
   ],
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "resume_project/main.py"
+    { "src": "/(.*)", 
+      "dest": "resume_project/main.py" }
+  ],
+  "functions": {
+    "resume_project/main.py": {
+      "maxDuration": 30
     }
-  ]
+  }
 }
